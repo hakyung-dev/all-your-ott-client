@@ -1,11 +1,19 @@
 import React from 'react';
+import { Route, Switch } from 'react-router-dom';
 
-function App() {
+import Layout from './layouts/Layout';
+import Index from './pages/Index';
+
+const App = () => {
   return (
     <div className="App">
-      <h1>All Your Streaming</h1>
+      <Layout>
+        <Switch>
+          <Route exact path="/" render={() => <Index />} />
+        </Switch>
+      </Layout>
     </div>
   );
-}
+};
 
 export default App;
