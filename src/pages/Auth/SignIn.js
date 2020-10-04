@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { signIn } from '../../api';
 
-const SignIn = () => {
+const SignIn = (props) => {
+  const { authorize } = props;
   const [values, setValues] = useState({});
   const [error, setError] = useState('');
 
@@ -31,6 +32,7 @@ const SignIn = () => {
 
     if (result.status === 200) {
       localStorage.setItem('token', result.data.token);
+      authorize();
     } else {
       setError(result.data.message);
     }
@@ -66,9 +68,12 @@ const SignIn = () => {
           </button>
         </form>
         <div>
-          <Link to={`/signup`} className="link-strong">
-            Sign Up
-          </Link>
+          {`Don't have any account? `}
+          <span>
+            <Link to={`/signup`} className="link-strong">
+              Sign Up
+            </Link>
+          </span>
         </div>
       </section>
     </div>

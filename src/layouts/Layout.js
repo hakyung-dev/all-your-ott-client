@@ -5,11 +5,15 @@ import Header from './Header';
 import Footer from './Footer';
 
 const Layout = (props) => {
-  const { children } = props;
+  const { children, signInUser, isAuthenticated, signOut } = props;
 
   return (
     <>
-      <Header />
+      <Header
+        signInUser={signInUser}
+        isAuthenticated={isAuthenticated}
+        signOut={signOut}
+      />
       <main id="main">{children}</main>
       <Footer />
     </>
