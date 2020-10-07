@@ -29,3 +29,24 @@ export const getUser = async (headers) => {
     return err.response;
   }
 };
+
+export const addStreaming = async (userId, streaming) => {
+  try {
+    const res = await axios.put(`api/users/${userId}/streaming/add`, streaming);
+    return res;
+  } catch (err) {
+    return err.response;
+  }
+};
+
+export const removeStreaming = async (userId, streamingId) => {
+  try {
+    const res = await axios.put(
+      `api/users/${userId}/streaming/remove`,
+      streamingId
+    );
+    return res;
+  } catch (err) {
+    return err.response;
+  }
+};

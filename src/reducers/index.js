@@ -1,18 +1,25 @@
 import * as types from '../constants/actionTypes';
 
+const isToken = localStorage.token ? true : false;
 const initialState = {
-  isAuthenticated: false,
+  isAuthenticated: isToken,
   signInUser: null,
+  streaming: null,
 };
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case types.SET_USER:
-      const signedUser = action.user ? { ...action.user } : null;
       return {
         ...state,
-        signInUser: signedUser,
+        signInUser: action.signInUser,
+        streaming: action.streaming,
         isAuthenticated: action.isAuthenticated,
+      };
+    case types.SET_STREAMING:
+      return {
+        ...state,
+        streaming: action.streaming,
       };
     default:
       return state;
