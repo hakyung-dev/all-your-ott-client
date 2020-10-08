@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, Redirect } from 'react-router-dom';
-import { signUp } from '../../api';
+import { signUpApi } from '../../api';
 
 const SignUp = () => {
   const [isSuccess, setIsSuccess] = useState(false);
@@ -47,7 +47,7 @@ const SignUp = () => {
       password,
     };
 
-    const result = await signUp(user);
+    const result = await signUpApi(user);
 
     if (result.status === 201) {
       setIsSuccess(true);

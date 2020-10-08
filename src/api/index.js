@@ -3,7 +3,7 @@ import { SERVER_URL } from '../config';
 
 axios.defaults.baseURL = SERVER_URL;
 
-export const signUp = async (user) => {
+export const signUpApi = async (user) => {
   try {
     const res = await axios.post('/api/users/signup', user);
     return res;
@@ -12,7 +12,7 @@ export const signUp = async (user) => {
   }
 };
 
-export const signIn = async (user) => {
+export const signInApi = async (user) => {
   try {
     const res = await axios.post('/api/users/signin', user);
     return res;
@@ -21,7 +21,7 @@ export const signIn = async (user) => {
   }
 };
 
-export const getUser = async (headers) => {
+export const getUserApi = async (headers) => {
   try {
     const res = await axios.get('/api/users', headers);
     return res;
@@ -30,7 +30,7 @@ export const getUser = async (headers) => {
   }
 };
 
-export const addStreaming = async (userId, streaming) => {
+export const addStreamingApi = async (userId, streaming) => {
   try {
     const res = await axios.put(`api/users/${userId}/streaming/add`, streaming);
     return res;
@@ -39,7 +39,7 @@ export const addStreaming = async (userId, streaming) => {
   }
 };
 
-export const removeStreaming = async (userId, streamingId) => {
+export const removeStreamingApi = async (userId, streamingId) => {
   try {
     const res = await axios.put(
       `api/users/${userId}/streaming/remove`,

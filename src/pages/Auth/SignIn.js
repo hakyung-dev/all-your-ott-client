@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { signIn } from '../../api';
+import { signInApi } from '../../api';
 
 const SignIn = (props) => {
   const { authorize } = props;
@@ -28,7 +28,7 @@ const SignIn = (props) => {
       password,
     };
 
-    const result = await signIn(user);
+    const result = await signInApi(user);
 
     if (result.status === 200) {
       localStorage.setItem('token', result.data.token);
