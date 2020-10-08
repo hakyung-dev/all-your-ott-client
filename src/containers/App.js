@@ -8,6 +8,7 @@ const mapStateToProps = (state) => {
     isAuthenticated: state.isAuthenticated,
     signInUser: state.signInUser,
     streaming: state.streaming,
+    selectedDay: state.day,
   };
 };
 
@@ -46,6 +47,9 @@ const mapDispatchToProps = (dispatch) => {
       if (result.status === 200) {
         dispatch(actions.setStreaming(result.data.user.streaming));
       }
+    },
+    selectDay(day) {
+      dispatch(actions.setDay(day));
     },
   };
 };
