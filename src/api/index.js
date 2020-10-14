@@ -50,3 +50,12 @@ export const removeStreamingApi = async (userId, streamingId) => {
     return err.response;
   }
 };
+
+export const searchMovieApi = async (movieTitle) => {
+  try {
+    const res = await axios.post(`api/search/movie`, movieTitle);
+    return res.data.result;
+  } catch (err) {
+    return err.response;
+  }
+};
