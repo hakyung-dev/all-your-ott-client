@@ -59,3 +59,12 @@ export const searchMovieApi = async (movieTitle) => {
     return err.response;
   }
 };
+
+export const addReviewApi = async (userId, review) => {
+  try {
+    const res = await axios.put(`api/review/${userId}/new`, review);
+    return res;
+  } catch (err) {
+    return err.response;
+  }
+};
