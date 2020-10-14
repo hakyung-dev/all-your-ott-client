@@ -64,11 +64,9 @@ const SignUp = () => {
   return (
     <div className="container-wide bg-signup side-right">
       <section className="wrap-column">
-        <div className="page-top">
-          <h1 className="auth-title">Sign Up</h1>
-          <div className="page-description">
-            And manage all your Streaming Services!
-          </div>
+        <h1 className="auth-title">Sign Up</h1>
+        <div className="page-description">
+          And manage all your Streaming Services!
         </div>
         <form className="wrap-column container-auth" onSubmit={handleSubmit}>
           <input

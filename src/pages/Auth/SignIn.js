@@ -45,10 +45,8 @@ const SignIn = (props) => {
   return (
     <div className="container-wide bg-signin side-left">
       <section className="wrap-column">
-        <div className="page-top">
-          <h1 className="auth-title">Sign In</h1>
-          <div className="page-description">Welcome Back!</div>
-        </div>
+        <h1 className="auth-title">Sign In</h1>
+        <div className="page-description">Welcome Back!</div>
         <form className="wrap-column container-auth" onSubmit={handleSubmit}>
           <input
             type="text"
