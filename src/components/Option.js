@@ -20,8 +20,8 @@ const Option = (props) => {
 
   return (
     <label htmlFor={type}>
-      <select id={type} name={type} onChange={handleOption} value={'DEFAULT'}>
-        <option disabled value="DEFAULT">
+      <select id={type} name={type} onChange={handleOption}>
+        <option value="none">
           -- 옵션을 선택하세요. --
         </option>
         {optionList}
