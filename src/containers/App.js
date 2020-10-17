@@ -8,7 +8,7 @@ const mapStateToProps = (state) => {
     isAuthenticated: state.isAuthenticated,
     signInUser: state.signInUser,
     streaming: state.streaming,
-    selectedDay: state.day,
+    review: state.review,
   };
 };
 
@@ -24,12 +24,13 @@ const mapDispatchToProps = (dispatch) => {
           actions.setSignInUser(
             result.data.signInUser,
             true,
-            result.data.streaming
+            result.data.streaming,
+            result.data.review
           )
         );
       } else {
         localStorage.removeItem('token');
-        dispatch(actions.setSignInUser(null, false, null));
+        dispatch(actions.setSignInUser(null, false, null, null));
       }
     },
     signOut() {
@@ -39,8 +40,8 @@ const mapDispatchToProps = (dispatch) => {
     setStreaming(streaming) {
       dispatch(actions.setStreaming(streaming));
     },
-    selectDay(day) {
-      dispatch(actions.setDay(day));
+    setUserReview(review) {
+      dispatch(actions.setReview(review));
     },
   };
 };

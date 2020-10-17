@@ -5,7 +5,7 @@ const initialState = {
   isAuthenticated: isToken,
   signInUser: null,
   streaming: null,
-  day: new Date(),
+  review: null,
 };
 
 const reducer = (state = initialState, action) => {
@@ -16,16 +16,17 @@ const reducer = (state = initialState, action) => {
         signInUser: action.signInUser,
         streaming: action.streaming,
         isAuthenticated: action.isAuthenticated,
+        review: action.review,
       };
     case types.SET_STREAMING:
       return {
         ...state,
         streaming: action.streaming,
       };
-    case types.SET_DAY:
+    case types.SET_REVIEW:
       return {
         ...state,
-        day: action.day,
+        review: action.review,
       };
     default:
       return state;
