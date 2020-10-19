@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { searchContentApi } from '../../api';
 
 import Pagination from '../../components/Pagination';
+import Loading from '../../components/Loading';
 import SearchResult from './SearchResult';
 import stand from '../../styles/images/stand.png';
 
@@ -9,6 +10,7 @@ const Search = (props) => {
   const { handleChoice } = props;
   const [keyword, setKeyword] = useState({ query: '' });
   const [searchList, setSearchList] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [error, setError] = useState('');
   const moviePerPage = 7;
@@ -22,12 +24,17 @@ const Search = (props) => {
     if (keyword.query.length === 0) {
       return setError('검색어를 입력하세요.');
     }
+
+    setIsLoading(true);
     const res = await searchContentApi(keyword);
     setSearchList(res);
+    setIsLoading(false);
+
     if (res.length < 1) {
       setError('검색결과가 없습니다.');
     }
   };
+
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
   const indexOfLastMovie = currentPage * moviePerPage;
   const indexOfFirstMovie = indexOfLastMovie - moviePerPage;
@@ -53,7 +60,11 @@ const Search = (props) => {
           </button>
         </form>
         <section className="container-result">
-          {searchList.length > 0 ? (
+          {isLoading ? (
+            <div className="search-result">
+              <Loading />
+            </div>
+          ) : searchList.length > 0 ? (
             <>
               <SearchResult items={currentMovie} handleChoice={handleChoice} />
               <Pagination
