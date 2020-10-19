@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Redirect } from 'react-router-dom';
 import format from 'date-fns/format';
-import { addReviewApi } from '../../api';
+import { addReviewApi, getDetailApi } from '../../api';
 
-import Movie from '../../components/Movie';
+import Content from '../../components/Content';
 import Option from '../../components/Option';
 import Rating from '../../components/Rating';
 import jump from '../../styles/images/jump.png';
@@ -13,7 +13,7 @@ const ReviewForm = (props) => {
     signInUser,
     setUserReview,
     streaming,
-    selectedMovie,
+    selectedContent,
     selectedDate,
   } = props;
   const [error, setError] = useState('');
@@ -27,11 +27,21 @@ const ReviewForm = (props) => {
       setHandledDate(selectedDate.selectedDate);
       setValues({ ...values, date: selectedDate.selectedDate });
     }
+  }, [selectedDate]);
 
-    if (selectedMovie) {
-      setValues({ ...values, movie: selectedMovie });
+  useEffect(() => {
+    if (selectedContent) {
+      const contentValues = {
+        id: selectedContent.id,
+        poster: `https://image.tmdb.org/t/p/original${selectedContent.poster_path}`,
+      };
+      setValues({
+        ...values,
+        content: contentValues,
+        type: selectedContent.type,
+      });
     }
-  }, [selectedMovie]);
+  }, [selectedContent]);
 
   useEffect(() => {
     setTimeout(() => setError(''), 2000);
@@ -48,18 +58,18 @@ const ReviewForm = (props) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const { movie, review, rating, date, service } = values;
+    const { content, type, review, rating, date, service } = values;
 
-    if (!movie) {
+    if (!content) {
       return setError('컨텐츠를 선택해 주세요.');
     }
 
     if (
-      !movie ||
       !review ||
       !rating ||
       !date ||
       !service ||
+      !type ||
       service === 'none'
     ) {
       return setError('모든 항목을 작성해주세요');
@@ -78,43 +88,46 @@ const ReviewForm = (props) => {
     return <Redirect to="/review" />;
   }
 
-  const movie = !selectedMovie ? (
+  const content = !selectedContent ? (
     <>
       <img src={jump} className="jump" alt="jump" />
       <div>리뷰 컨텐츠를 검색해주세요!</div>
     </>
   ) : (
     <>
-      <Movie movie={selectedMovie} />
+      <Content content={selectedContent} />
     </>
   );
 
   return (
-    <div className="sub-body-inline">
-      <div className="selected card bg-white">{movie}</div>
+    <div className="sub-body">
+      <div className="selected card bg-white">{content}</div>
       <form className="form-add-review" onSubmit={handleSubmit}>
-        <div>
-          언제 감상하셨나요?
+        <p className="when">
+          <span>언제 감상하셨나요?</span>
           <input
             type="date"
             name="date"
             onChange={handleDate}
             value={handledDate}
           />
-        </div>
-        <div>
-          어떤 서비스를 통해 감상하셨나요?
+        </p>
+        <p className="by">
+          <span>어떤 서비스를 통해 감상하셨나요?</span>
           <Option
             options={streaming}
             type={`service`}
             handleOption={handleChange}
           />
-        </div>
-        <div className="rating">
-          얼마의 값어치가 있는 컨텐츠 였나요? <span>{hover}</span>
-        </div>
+        </p>
+        <p className="rating">
+          <span>얼마의 값어치가 있는 컨텐츠 였나요?</span>
+          {hover}
+        </p>
         <Rating handleChange={handleChange} setHover={setHover} hover={hover} />
-        <div>감상평 </div>
+        <p className="text">
+          <span>감상평</span>
+        </p>
         <textarea
           className="input-create"
           name="review"
@@ -123,6 +136,7 @@ const ReviewForm = (props) => {
           rows="4"
           cols="50"
         />
+
         <div className="error">{error}</div>
         <button className="submit-add" type="submit">
           등록하기

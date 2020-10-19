@@ -7,10 +7,10 @@ import NeedLogin from '../../components/NeedLogin';
 
 const NewReview = (props) => {
   const { signInUser } = props;
-  const [selectedMovie, setSelectedMovie] = useState(null);
+  const [selectedContent, setSelectedContent] = useState(null);
 
-  const handleChoice = (movie) => {
-    setSelectedMovie(movie);
+  const handleChoice = (content) => {
+    setSelectedContent({ ...content });
   };
 
   return (
@@ -41,7 +41,7 @@ const NewReview = (props) => {
             <ReviewForm
               {...props}
               selectedDate={props.location.state}
-              selectedMovie={selectedMovie}
+              selectedContent={selectedContent}
             />
           )}
         </div>

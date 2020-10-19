@@ -5,13 +5,15 @@ import defaultPoster from '../../styles/images/defaultPoster.png';
 const SearchResult = (props) => {
   const { items, handleChoice } = props;
 
-  const movieItem = items.map((movie, i) => {
-    const { title, image, pubDate, link } = movie;
+  const contentItem = items.map((content, i) => {
+    const { title, poster_path, name, release_date, first_air_date } = content;
 
-    const movieTitle = title.replace(/<b>/gi, '').replace(/<\/b>/gi, '');
-    let poster = image;
+    const contentTitle = title || name;
+    const year = (release_date || first_air_date).slice(0, 4);
 
-    if (image.length === 0) {
+    let poster = `https://image.tmdb.org/t/p/original${poster_path}`;
+
+    if (!poster_path) {
       poster = defaultPoster;
     }
 
@@ -20,14 +22,11 @@ const SearchResult = (props) => {
         <img src={poster} alt="movie" className="poster" />
         <div className="info">
           <div className="title">
-            <div className="year">{pubDate}</div>
-            {movieTitle}
+            <div className="year">{year}</div>
+            {contentTitle}
           </div>
           <div className="wrap-button">
-            <a className="link" href={link}>
-              자세히 보기
-            </a>
-            <button className="choice" onClick={() => handleChoice(movie)}>
+            <button className="choice" onClick={() => handleChoice(content)}>
               작성하기
             </button>
           </div>
@@ -36,7 +35,7 @@ const SearchResult = (props) => {
     );
   });
 
-  return <ul className="search-result">{movieItem}</ul>;
+  return <ul className="search-result">{contentItem}</ul>;
 };
 
 export default SearchResult;
