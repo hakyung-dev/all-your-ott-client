@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { searchMovieApi } from '../../api';
+import { searchContentApi } from '../../api';
 
 import Pagination from '../../components/Pagination';
 import SearchResult from './SearchResult';
@@ -7,22 +7,22 @@ import stand from '../../styles/images/stand.png';
 
 const Search = (props) => {
   const { handleChoice } = props;
-  const [keyword, setKeyword] = useState({ title: '' });
+  const [keyword, setKeyword] = useState({ query: '' });
   const [searchList, setSearchList] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [error, setError] = useState('');
   const moviePerPage = 7;
 
   const handleSearchChange = (e) => {
-    setKeyword({ title: e.target.value });
+    setKeyword({ query: e.target.value });
   };
 
   const handleSearch = async (e) => {
     e.preventDefault();
-    if (keyword.title.length === 0) {
+    if (keyword.query.length === 0) {
       return setError('검색어를 입력하세요.');
     }
-    const res = await searchMovieApi(keyword);
+    const res = await searchContentApi(keyword);
     setSearchList(res);
     if (res.length < 1) {
       setError('검색결과가 없습니다.');

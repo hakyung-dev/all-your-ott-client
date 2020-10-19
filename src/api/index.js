@@ -51,9 +51,18 @@ export const removeStreamingApi = async (userId, streamingId) => {
   }
 };
 
-export const searchMovieApi = async (movieTitle) => {
+export const searchContentApi = async (query) => {
   try {
-    const res = await axios.post(`api/search/movie`, movieTitle);
+    const res = await axios.post(`api/search/content`, query);
+    return res.data.result;
+  } catch (err) {
+    return err.response;
+  }
+};
+
+export const getGenreApi = async (genres) => {
+  try {
+    const res = await axios.post(`api/search/genre`, genres);
     return res.data.result;
   } catch (err) {
     return err.response;
@@ -61,6 +70,7 @@ export const searchMovieApi = async (movieTitle) => {
 };
 
 export const addReviewApi = async (userId, review) => {
+  console.log(review);
   try {
     const res = await axios.put(`api/review/${userId}/new`, review);
     return res;
