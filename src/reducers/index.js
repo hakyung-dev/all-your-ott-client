@@ -6,6 +6,7 @@ const initialState = {
   signInUser: null,
   streaming: null,
   review: null,
+  day: new Date(),
 };
 
 const reducer = (state = initialState, action) => {
@@ -27,6 +28,11 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         review: action.review,
+      };
+    case types.SET_DAY:
+      return {
+        ...state,
+        day: action.day,
       };
     default:
       return state;

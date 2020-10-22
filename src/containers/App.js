@@ -9,6 +9,7 @@ const mapStateToProps = (state) => {
     signInUser: state.signInUser,
     streaming: state.streaming,
     review: state.review,
+    day: state.day,
   };
 };
 
@@ -42,6 +43,9 @@ const mapDispatchToProps = (dispatch) => {
     },
     setUserReview(review) {
       dispatch(actions.setReview(review));
+    },
+    changeDay(day) {
+      dispatch(actions.setDay(day));
     },
   };
 };
