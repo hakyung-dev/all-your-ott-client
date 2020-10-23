@@ -39,13 +39,13 @@ const Header = (props) => {
           <Link to="/">
             <div className="to-home">
               <img src={logo} className="logo" alt="logo" />
-              <div className="title">AYS</div>
+              <div className="title">AYO</div>
             </div>
           </Link>
           <nav>
             <ul className="nav-list">
               <li>
-                <Link to="/streaming">Streaming</Link>
+                <Link to="/dashboard">Dashboard</Link>
               </li>
               <li>
                 <Link to="/review">Review</Link>
