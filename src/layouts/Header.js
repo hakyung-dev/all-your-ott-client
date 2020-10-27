@@ -1,36 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
+import Nav from '../components/Nav';
+import AuthBox from '../components/AuthBox';
+import ToggleButton from '../components/ToggleButton';
+import Side from './Side';
 import logo from '../styles/images/logo.svg';
 
 const Header = (props) => {
-  const { signInUser, isAuthenticated, signOut } = props;
+  const [side, setSide] = useState(false);
 
-  const handleClick = () => signOut();
-
-  const authBox = isAuthenticated ? (
-    <>
-      {signInUser ? (
-        <span className="user">
-          안녕하세요, <span className="user-name">{signInUser.name}</span> 님 ♥
-        </span>
-      ) : (
-        <span className="user">다시 로그인 해주세요.</span>
-      )}
-      <Link to="/" className="button link-signout" onClick={handleClick}>
-        Sign Out
-      </Link>
-    </>
-  ) : (
-    <>
-      <Link to="/signin" className="button link-signin">
-        Sign In
-      </Link>
-      <Link to="/signup" className="button link-signup">
-        Sign Up
-      </Link>
-    </>
-  );
+  const handleSide = () => {
+    setSide(!side);
+  };
 
   return (
     <header>
@@ -42,18 +24,18 @@ const Header = (props) => {
               <div className="title">AYO</div>
             </div>
           </Link>
-          <nav>
-            <ul className="nav-list">
-              <li>
-                <Link to="/dashboard">Dashboard</Link>
-              </li>
-              <li>
-                <Link to="/review">Review</Link>
-              </li>
-            </ul>
-          </nav>
+          <Nav type={`header`} />
         </div>
-        <div className="wrap-auth">{authBox}</div>
+        <AuthBox {...props} type={`web wrap-auth`} />
+        <div className="mobile wrap-auth">
+          <ToggleButton
+            handleToggle={handleSide}
+            type={`side`}
+            isChecked={side}
+            text={``}
+          />
+          <Side {...props} handleSide={handleSide} />
+        </div>
       </div>
     </header>
   );
