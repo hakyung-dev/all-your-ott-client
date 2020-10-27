@@ -43,38 +43,40 @@ const SignIn = (props) => {
   };
 
   return (
-    <div className="container-wide bg-signin side-left">
-      <section className="wrap-column">
-        <h1 className="auth-title">Sign In</h1>
-        <div className="page-description">Welcome Back!</div>
-        <form className="wrap-column container-auth" onSubmit={handleSubmit}>
-          <input
-            type="text"
-            name="email"
-            placeholder="email"
-            onChange={handleChange}
-          />
-          <input
-            type="password"
-            name="password"
-            placeholder="password"
-            onChange={handleChange}
-          />
-          <div className="error">{error}</div>
-          <button className="button submit" type="submit">
-            Sign In
-          </button>
-        </form>
-        <div>
-          {`Don't have any account? `}
-          <span>
-            <Link to={`/signup`} className="link-strong">
-              Sign Up
-            </Link>
-          </span>
+    <section className="bg-signin">
+      <div className="container-auth side-left">
+        <div className="wrap-column">
+          <h1 className="auth-title">Sign In</h1>
+          <div className="auth-description">Welcome Back!</div>
+          <form className="wrap-column" onSubmit={handleSubmit}>
+            <input
+              type="text"
+              name="email"
+              placeholder="email"
+              onChange={handleChange}
+            />
+            <input
+              type="password"
+              name="password"
+              placeholder="password"
+              onChange={handleChange}
+            />
+            <div className="error">{error}</div>
+            <button className="button-auth submit-auth" type="submit">
+              Sign In
+            </button>
+          </form>
+          <div className="error">
+            {`Don't have any account? `}
+            <span>
+              <Link to={`/signup`} className="link-strong">
+                Sign Up
+              </Link>
+            </span>
+          </div>
         </div>
-      </section>
-    </div>
+      </div>
+    </section>
   );
 };
 

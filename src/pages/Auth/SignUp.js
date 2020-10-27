@@ -62,52 +62,54 @@ const SignUp = () => {
   }
 
   return (
-    <div className="container-wide bg-signup side-right">
-      <section className="wrap-column">
-        <h1 className="auth-title">Sign Up</h1>
-        <div className="page-description">
-          And manage all your Streaming Services!
+    <section className="bg-signup">
+      <div className="container-auth side-right">
+        <div className="wrap-column">
+          <h1 className="auth-title">Sign Up</h1>
+          <div className="auth-description">
+            And manage all your OTT Services!
+          </div>
+          <form className="wrap-column" onSubmit={handleSubmit}>
+            <input
+              type="text"
+              name="email"
+              placeholder="email"
+              onChange={handleChange}
+            />
+            <input
+              type="text"
+              name="name"
+              placeholder="name"
+              onChange={handleChange}
+            />
+            <input
+              type="password"
+              name="password"
+              placeholder="password"
+              onChange={handleChange}
+            />
+            <input
+              type="password"
+              name="passwordConfirm"
+              placeholder="password confirm"
+              onChange={handleChange}
+            />
+            <div className="error">{error}</div>
+            <button className="button-auth submit" type="submit">
+              Sign Up
+            </button>
+          </form>
+          <div className="error">
+            Already have an account?{' '}
+            <span>
+              <Link to={`/signin`} className="link-strong">
+                Sign In
+              </Link>
+            </span>
+          </div>
         </div>
-        <form className="wrap-column container-auth" onSubmit={handleSubmit}>
-          <input
-            type="text"
-            name="email"
-            placeholder="email"
-            onChange={handleChange}
-          />
-          <input
-            type="text"
-            name="name"
-            placeholder="name"
-            onChange={handleChange}
-          />
-          <input
-            type="password"
-            name="password"
-            placeholder="password"
-            onChange={handleChange}
-          />
-          <input
-            type="password"
-            name="passwordConfirm"
-            placeholder="password confirm"
-            onChange={handleChange}
-          />
-          <div className="error">{error}</div>
-          <button className="button submit" type="submit">
-            Sign Up
-          </button>
-        </form>
-        <div>
-          Already have an account?{' '}
-          <span>
-            <Link to={`/signin`} className="link-strong">
-              Sign In
-            </Link>
-          </span>
-        </div>
-      </section>
-    </div>
+      </div>
+    </section>
   );
 };
 
