@@ -41,12 +41,12 @@ const Search = (props) => {
   const currentMovie = searchList.slice(indexOfFirstMovie, indexOfLastMovie);
 
   return (
-    <div className="container-sub">
+    <div className="container">
       <div className="sub-top">
         <div className="title">Search</div>
         <div className="description">리뷰할 컨텐츠를 검색하세요.</div>
       </div>
-      <div className="sub-body page-search">
+      <div className="sub-body">
         <form className="form-search" onSubmit={handleSearch}>
           <input
             className="input-search"

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+
 import oback from '../styles/images/500.png';
 import chun from '../styles/images/1000.png';
 import ochun from '../styles/images/5000.png';
@@ -32,9 +33,10 @@ const Rating = (props) => {
           onChange={handleRating}
         />
         <img
-          className={500 <= (hover || rating) ? 'money' : 'money-blank'}
+          className={
+            500 <= (hover || rating) ? 'money coin' : 'money-blank coin'
+          }
           src={oback}
-          width="40px"
           alt="money"
           onMouseEnter={() => handleMouseEnter(500)}
           onMouseLeave={() => handleMouseLeave()}
@@ -51,7 +53,6 @@ const Rating = (props) => {
         <img
           className={1000 <= (hover || rating) ? 'money' : 'money-blank'}
           src={chun}
-          width="80px"
           alt="money"
           onMouseEnter={() => handleMouseEnter(1000)}
           onMouseLeave={() => handleMouseLeave()}
@@ -68,7 +69,6 @@ const Rating = (props) => {
         <img
           className={5000 <= (hover || rating) ? 'money' : 'money-blank'}
           src={ochun}
-          width="80px"
           alt="money"
           onMouseEnter={() => handleMouseEnter(5000)}
           onMouseLeave={() => handleMouseLeave()}
@@ -85,7 +85,6 @@ const Rating = (props) => {
         <img
           className={10000 <= (hover || rating) ? 'money' : 'money-blank'}
           src={man}
-          width="80px"
           alt="money"
           onMouseEnter={() => handleMouseEnter(10000)}
           onMouseLeave={() => handleMouseLeave()}
@@ -102,7 +101,6 @@ const Rating = (props) => {
         <img
           className={50000 <= (hover || rating) ? 'money' : 'money-blank'}
           src={oman}
-          width="80px"
           alt="money"
           onMouseEnter={() => handleMouseEnter(50000)}
           onMouseLeave={() => handleMouseLeave()}

@@ -137,10 +137,10 @@ const ReviewForm = (props) => {
   );
 
   return (
-    <div className="sub-body">
-      <div className="selected card bg-white">{content}</div>
+    <>
+      <div className="selected card-big bg-white rowToColumn">{content}</div>
       <form className="form-add-review" onSubmit={handleSubmit}>
-        <div className="form">
+        <div className="form rowToColumn">
           <div className="left">
             <p className="when">
               <span>언제 감상하셨나요?</span>
@@ -160,8 +160,7 @@ const ReviewForm = (props) => {
               />
             </p>
             <p className="rating">
-              <span>얼마의 가치가 있는 컨텐츠 였나요?</span>
-              {hover}
+              <span>얼마의 가치가 있는 컨텐츠 였나요? {hover}</span>
             </p>
             <Rating
               handleChange={handleChange}
@@ -170,15 +169,15 @@ const ReviewForm = (props) => {
             />
             <p className="text">
               <span>감상평</span>
+              <textarea
+                className="input-create"
+                name="review"
+                placeholder="리뷰를 작성해주세요"
+                onChange={handleChange}
+                rows="4"
+                cols="50"
+              />
             </p>
-            <textarea
-              className="input-create"
-              name="review"
-              placeholder="리뷰를 작성해주세요"
-              onChange={handleChange}
-              rows="4"
-              cols="50"
-            />
           </div>
           <div className="right">
             <p className="directing">
@@ -253,7 +252,7 @@ const ReviewForm = (props) => {
           등록하기
         </button>
       </form>
-    </div>
+    </>
   );
 };
 

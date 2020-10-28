@@ -9,7 +9,7 @@ const SearchResult = (props) => {
     const { title, poster_path, name, release_date, first_air_date } = content;
 
     const contentTitle = title || name;
-    const year = (release_date || first_air_date).slice(0, 4);
+    const year = (release_date || first_air_date || `정보없음`).slice(0, 4);
 
     let poster = `https://image.tmdb.org/t/p/original${poster_path}`;
 
