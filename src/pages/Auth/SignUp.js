@@ -49,11 +49,15 @@ const SignUp = () => {
 
     const result = await signUpApi(user);
 
-    if (result.status === 201) {
-      setIsSuccess(true);
+    if (result) {
+      if (result.status === 201) {
+        setIsSuccess(true);
+      } else {
+        setError(result.data.message);
+        setValues({});
+      }
     } else {
-      setError(result.data.message);
-      setValues({});
+      setError(`서버가 불안정합니다. 다시 시도해주세요.`);
     }
   };
 
@@ -95,7 +99,7 @@ const SignUp = () => {
               onChange={handleChange}
             />
             <div className="error">{error}</div>
-            <button className="button-auth submit" type="submit">
+            <button className="button-auth submit-auth" type="submit">
               Sign Up
             </button>
           </form>

@@ -20,23 +20,27 @@ const mapDispatchToProps = (dispatch) => {
       const headers = { headers: { authorization: `Bearer ${token}` } };
       const result = await getUserApi(headers);
 
-      if (result.status === 200) {
-        dispatch(
-          actions.setSignInUser(
-            result.data.signInUser,
-            true,
-            result.data.streaming,
-            result.data.review
-          )
-        );
+      if (result) {
+        if (result.status === 200) {
+          dispatch(
+            actions.setSignInUser(
+              result.data.signInUser,
+              true,
+              result.data.streaming,
+              result.data.review
+            )
+          );
+        } else {
+          localStorage.removeItem('token');
+          dispatch(actions.setSignInUser(null, false, null, null));
+        }
       } else {
-        localStorage.removeItem('token');
         dispatch(actions.setSignInUser(null, false, null, null));
       }
     },
     signOut() {
       localStorage.removeItem('token');
-      dispatch(actions.setSignInUser(null, false, null));
+      dispatch(actions.setSignInUser(null, false, null, null));
     },
     setStreaming(streaming) {
       dispatch(actions.setStreaming(streaming));

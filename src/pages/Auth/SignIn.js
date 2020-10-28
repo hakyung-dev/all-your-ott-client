@@ -30,11 +30,15 @@ const SignIn = (props) => {
 
     const result = await signInApi(user);
 
-    if (result.status === 200) {
-      localStorage.setItem('token', result.data.token);
-      authorize();
+    if (result) {
+      if (result.status === 200) {
+        localStorage.setItem('token', result.data.token);
+        authorize();
+      } else {
+        setError(result.data.message);
+      }
     } else {
-      setError(result.data.message);
+      setError(`서버가 불안정합니다. 다시 시도해주세요.`);
     }
   };
 
