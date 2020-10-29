@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 
 import Search from './Search';
 import ReviewForm from './ReviewForm';
-import PageTop from '../../components/PageTop';
 import NeedLogin from '../../components/NeedLogin';
 
 const NewReview = (props) => {
@@ -15,12 +14,12 @@ const NewReview = (props) => {
 
   return (
     <>
-      <PageTop
-        bg={`new-review`}
-        color={`basic`}
-        title={`New Review`}
-        subtitle={`새로운 리뷰를 작성해보세요!`}
-      />
+      <section>
+        <div className={`container bg-new-review page-top`}>
+          <h1 className={`page-top-title`}>New Review</h1>
+          새로운 리뷰를 작성해보세요!
+        </div>
+      </section>
       <section className="bg-skyblue">
         <Search handleChoice={handleChoice} />
       </section>
