@@ -60,7 +60,7 @@ const NowStreaming = (props) => {
   );
   return (
     <>
-      <ul className="rowToColumn">
+      <ul className="rowToColumn overflow-wrap">
         {serviceList}
         {mode && <Setting {...props} closeMode={handlemode} />}
       </ul>
