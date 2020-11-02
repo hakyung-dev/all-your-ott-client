@@ -14,19 +14,19 @@ const MyReview = (props) => {
       <div className="container container-my-review bg-myreview">
         <div className="title">My review</div>
         <div className="review-body rowToColumn">
-          <div className="myreview">
-            <p className="my-rate">
+          <div className="my-review">
+            <div className="my-rate">
               <span>평가 금액?!</span>
               <Rate type={`money`} rate={rating} />
-            </p>
-            <p>
+            </div>
+            <p className="my-date">
               <span>감상 날짜</span>
               {reviewDate}
             </p>
-            <p>
+            <p className="my-service">
               <span>이용 서비스</span>by {service}
             </p>
-            <p>
+            <p className="my-text">
               <span>감상평</span>
               {review}
             </p>

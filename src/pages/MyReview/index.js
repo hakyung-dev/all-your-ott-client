@@ -30,14 +30,14 @@ const MyReview = ({ match }) => {
       }
     };
     callApi();
-  }, []);
-
-  console.log(detail, credit);
+  }, [match.params.id]);
 
   return (
     <>
       {isLoading ? (
-        <Loading />
+        <div className="container-loading">
+          <Loading />
+        </div>
       ) : (
         <>
           <ContentDetail content={detail} />

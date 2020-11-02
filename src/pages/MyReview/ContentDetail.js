@@ -29,7 +29,7 @@ const ContentDetail = (props) => {
   );
 
   const allGenre = [];
-  genres.map((genre, i) => {
+  genres.forEach((genre, i) => {
     allGenre.push(genre.name);
   });
 
@@ -55,10 +55,10 @@ const ContentDetail = (props) => {
               {overview}
             </p>
             {isHomepage}
-            <p className="rate">
+            <div className="rate">
               <span>Rate</span>
               <Rate rate={rating} type={`circle`} />
-            </p>
+            </div>
           </div>
         </div>
       </div>
