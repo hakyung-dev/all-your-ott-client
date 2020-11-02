@@ -1,0 +1,127 @@
+.card-small {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px;
+  padding: 30px;
+  height: 230px;
+  width: 230px;
+  box-shadow: $shadow;
+  border-radius: 20px;
+}
+
+.card-item {
+  .item-name {
+    margin-bottom: 10px;
+    font: {
+      size: 1.5rem;
+      weight: 600;
+    }
+  }
+
+  .item-body {
+    font: {
+      weight: 600;
+    }
+  }
+}
+
+.cards {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .img {
+    height: 300px;
+    margin: 5px;
+    border-radius: 20px;
+    box-shadow: $shadow;
+  }
+  .img2 {
+    width: 300px;
+    margin: 5px;
+    border-radius: 20px;
+  }
+  .img2 {
+    width: 300px;
+    margin: 5px;
+    border-radius: 20px;
+  }
+  .img3 {
+    height: 300px;
+    margin: 5px;
+  }
+}
+
+.rowToColumn-reverse {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.index-sub {
+  padding-top: 70px;
+  padding-bottom: 50px;
+  justify-content: space-around;
+
+  .info {
+    text-align: center;
+    .title {
+      font-size: 2rem;
+      font-weight: 400;
+      font-family: $font-title;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+    .description {
+      margin-bottom: 10px;
+    }
+  }
+}
+
+.mini-del {
+  color: $color-font2;
+  font-size: 2rem;
+  height: 2rem;
+  align-self: flex-end;
+}
+
+@include respond-to(mobile) {
+  .card-small {
+    margin: 5px;
+    padding: 15px 15px 10px 20px;
+    height: 140px;
+    width: 140px;
+    border-radius: 15px;
+  }
+
+  .mini-del {
+    font-size: 1.5rem;
+  }
+
+  .card-item {
+    .item-name {
+      margin-bottom: 8px;
+      font: {
+        size: 1.3rem;
+      }
+    }
+
+    .item-body {
+      font: {
+        size: 0.9rem;
+      }
+    }
+  }
+
+  .rowToColumn-reverse {
+    flex-direction: column-reverse;
+  }
+
+  .cards {
+    .img3 {
+      width: 300px;
+      height: auto;
+    }
+  }
+}

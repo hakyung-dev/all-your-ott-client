@@ -1,0 +1,220 @@
+.container-content {
+  display: flex;
+  align-items: center;
+
+  .poster {
+    padding: 0px;
+    width: 250px;
+    margin: 0 30px 0 0;
+  }
+
+  .info {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .wrap-title {
+    margin-bottom: 20px;
+    .title {
+      font-family: $font-body;
+      font-size: 1.2rem;
+      font-weight: 600;
+    }
+    .original {
+      color: $color-font;
+      font-family: $font-title;
+      font-size: 2.2rem;
+      font-weight: 600;
+    }
+  }
+
+  .genre,
+  .overview,
+  .rate {
+    display: flex;
+    align-items: center;
+    text-align: left;
+
+    color: #2c2c2c;
+    font-size: 0.9rem;
+  }
+
+  span {
+    flex: 0 0 100px;
+    font-weight: 600;
+  }
+
+  .ul-genre {
+    display: flex;
+    li {
+      margin-right: 10px;
+    }
+  }
+
+  .rate-number {
+    font-size: 0.7rem;
+  }
+
+  .circular-chart {
+    display: flex;
+    width: 70px;
+    height: 70px;
+    display: block;
+    margin: 10px 0;
+    max-width: 80%;
+    max-height: 250px;
+  }
+
+  .circle {
+    stroke: $blue;
+    fill: none;
+    stroke-width: 4;
+    stroke-linecap: round;
+    animation: progress 1s ease-out forwards;
+  }
+
+  .circle-bg {
+    stroke: #dddddd;
+    fill: none;
+    stroke-width: 4;
+    stroke-linecap: round;
+  }
+}
+
+.container-credit {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  max-width: 1024px;
+  padding: 50px 20px;
+
+  .crew {
+    display: flex;
+  }
+
+  .title {
+    text-align: center;
+    margin: 20px 0;
+    font-size: 2rem;
+    font-family: $font-title;
+  }
+
+  .ul-actors {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+
+    .actor {
+      margin: 10px;
+    }
+  }
+
+  .profile {
+    border: 1px solid #dddddd;
+    width: 100%;
+  }
+
+  .actor-name {
+    font-weight: 600;
+  }
+
+  .actor-character {
+    font-weight: 600;
+    color: #7c7c7c;
+    font-size: 0.9rem;
+  }
+
+  span {
+    flex: 0 0 130px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #2c2c2c;
+  }
+}
+
+.container-my-review {
+  .title {
+    text-align: center;
+    margin: 20px 0;
+    font-size: 2rem;
+    font-family: $font-title;
+  }
+}
+
+.review-body {
+  justify-content: space-between;
+  .score-chart {
+    padding: 30px;
+  }
+
+  .money-rate {
+    width: 100%;
+  }
+
+  .my-rate,
+  .my-date,
+  .my-service,
+  .my-text {
+    display: flex;
+  }
+
+  span {
+    flex: 0 0 40%;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #2c2c2c;
+  }
+}
+
+@include respond-to(mobile) {
+  .container-content {
+    flex-direction: column;
+    .info {
+      padding: 30px 0 0;
+    }
+
+    .poster {
+      padding: 0px;
+      margin: 0;
+    }
+
+    .genre,
+    .overview,
+    .rate {
+      display: flex;
+
+      span {
+        flex: 0 0 30%;
+        margin-bottom: 0.5rem;
+      }
+    }
+  }
+
+  .container-credit {
+    padding: 30px 20px;
+
+    .ul-actors {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  .review-body {
+    .my-review {
+      padding-left: 10px;
+      padding-right: 10px;
+      width: 100%;
+    }
+    .score-chart {
+      padding: 10px 10px 50px;
+    }
+    .rate {
+      .text {
+        display: block;
+      }
+    }
+
+    span {
+      flex: 0 0 40%;
+    }
+  }
+}

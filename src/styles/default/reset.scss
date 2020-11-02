@@ -1,5 +1,7 @@
 html {
   font-size: 100%;
+  font-family: $font-body;
+  min-width: $small;
 }
 
 *,
@@ -21,7 +23,7 @@ ul {
 }
 
 a {
-  color: none;
+  color: $color-font;
 }
 
 input {
@@ -36,5 +38,21 @@ button {
   background: none;
   &:focus {
     outline: none;
+  }
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+}
+
+.invisible {
+  display: none;
+}
+
+@include respond-to(mobile) {
+  html {
+    font-size: 85%;
   }
 }

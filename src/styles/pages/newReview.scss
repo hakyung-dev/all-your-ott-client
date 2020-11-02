@@ -1,0 +1,422 @@
+.form-search {
+  text-align: center;
+  margin: 20px 0;
+
+  .input-search {
+    background: none;
+    padding: 0 0 5px 5px;
+    border-bottom: 1px solid $color-font;
+    font-size: 1.2rem;
+    color: $color-font;
+    background-color: none;
+    font-family: $font-body;
+  }
+
+  .submit-search {
+    margin: 10px;
+    padding: 0.8rem 2rem;
+    border-radius: 5px;
+    background-color: #000000;
+    color: #ffffff;
+    font-weight: 600;
+    font-family: $font-body;
+    &:hover {
+      cursor: pointer;
+      background-color: $red;
+      color: #ffffff;
+    }
+  }
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px;
+  padding: 30px;
+  height: 300px;
+  width: 300px;
+  box-shadow: $shadow;
+  border-radius: 20px;
+}
+
+.card-big {
+  margin: 10px;
+  padding: 30px;
+  min-height: 300px;
+  min-width: 300px;
+  box-shadow: $shadow;
+  border-radius: 20px;
+}
+
+.no-result {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  .error {
+    height: 20px;
+  }
+
+  img {
+    width: 150px;
+    margin-bottom: 15px;
+  }
+}
+
+.container-result {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.pagination {
+  display: inline-flex;
+
+  li {
+    margin: 0 10px;
+
+    .page-button {
+      color: $blue;
+      font-size: 2rem;
+      font-family: $font-title;
+    }
+    .page-button-active {
+      color: $red;
+      font-size: 2rem;
+      font-family: $font-title;
+    }
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+.search-result {
+  display: flex;
+  align-items: center;
+  height: 320px;
+
+  .movie {
+    position: relative;
+    width: 110px;
+    height: 150px;
+    overflow: hidden;
+    display: flex;
+
+    .poster {
+      width: 100%;
+      border: 1px solid $color-font2;
+    }
+
+    .info {
+      position: absolute;
+      bottom: 0;
+      opacity: 0;
+      padding: 20px;
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0.65);
+
+      .title {
+        font-family: $font-body;
+        font-size: 1.3rem;
+        font-weight: 600;
+        margin: 0 5px;
+        color: #eeeeee;
+        .year {
+          font-size: 0.9rem;
+          font-weight: 600;
+        }
+      }
+    }
+
+    &:hover {
+      cursor: pointer;
+      width: 220px;
+      height: 316px;
+      box-shadow: $shadow;
+
+      .info {
+        opacity: 100;
+      }
+    }
+  }
+
+  .wrap-button {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+
+    .link,
+    .choice {
+      text-align: center;
+      margin: 5px;
+      font-size: 1rem;
+      border: 1px solid $yellow;
+      padding: 5px;
+      line-height: 1;
+      color: #eeeeee;
+      &:hover {
+        cursor: pointer;
+        color: #000000;
+        background-color: $yellow;
+      }
+    }
+  }
+}
+
+.jump {
+  width: 180px;
+  margin: 0 20px;
+}
+
+.selected {
+  margin-bottom: 50px;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+
+  .poster {
+    box-shadow: $shadow;
+    width: 250px;
+    margin-right: 50px;
+  }
+
+  .data {
+    margin: 30px 30px 20px 0;
+
+    .title {
+      font-size: 2.5rem;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+
+    .genre,
+    .overview {
+      display: flex;
+      color: #2c2c2c;
+      font-size: 0.9rem;
+    }
+
+    span {
+      justify-content: flex-start;
+      flex: 0 0 100px;
+      font-weight: 600;
+    }
+  }
+}
+
+.rowToColumn {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.form-add-review {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  .form {
+    display: flex;
+    justify-content: space-between;
+
+    .right {
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+      margin: 0 auto;
+      padding: 3rem;
+    }
+  }
+
+  .rating-money {
+    text-align: center;
+    label {
+      margin: 0 5px;
+    }
+  }
+
+  .when,
+  .by,
+  .rating,
+  .text {
+    display: block;
+    text-align: right;
+    color: #2c2c2c;
+    font-size: 1rem;
+
+    span {
+      display: block;
+      flex: 0 0 280px;
+      font-weight: 600;
+      text-align: left;
+      margin-bottom: 0.5rem;
+    }
+  }
+
+  .directing,
+  .acting,
+  .visual,
+  .story,
+  .ost {
+    display: flex;
+    color: #2c2c2c;
+    font-size: 1rem;
+    margin: 1rem 0;
+    padding: 0 10px;
+
+    span {
+      flex: 45%;
+      font-weight: 600;
+    }
+
+    input {
+      margin-right: 20px;
+      cursor: pointer;
+    }
+  }
+
+  .input-create {
+    font-family: $font-body;
+    border-bottom: 1px solid $color-font;
+    width: 100%;
+  }
+
+  .error {
+    text-align: center;
+    margin: 20px 0;
+    font-size: 0.9rem;
+    height: 16px;
+  }
+}
+
+.submit-add {
+  margin: 0.5rem;
+  padding: 15px 30px 12px;
+  border-radius: 5px;
+  font-weight: 600;
+  background-color: #000000;
+  color: #ffffff;
+  font-size: 1rem;
+  font-family: $font-body;
+  width: 200px;
+  align-self: center;
+  &:hover {
+    cursor: pointer;
+    background-color: $red;
+    color: #ffffff;
+  }
+}
+
+.money {
+  width: 80px;
+  -webkit-filter: grayscale(0%);
+  filter: none;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.money-blank {
+  width: 80px;
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
+}
+
+.coin {
+  width: 40px;
+}
+
+@include respond-to(mobile) {
+  .card {
+    padding: 30px;
+    height: 250px;
+    width: 250px;
+  }
+
+  .no-result {
+    img {
+      width: 100px;
+    }
+  }
+
+  .search-result {
+    flex-direction: column;
+    // flex-wrap: wrap;
+    align-items: center;
+    height: inherit;
+  }
+
+  .pagination {
+    margin-top: 1rem;
+  }
+
+  .jump {
+    width: 120px;
+  }
+
+  .card-big {
+    display: flex;
+    align-items: center;
+    margin: 5px;
+    padding: 20px;
+    min-height: 250px;
+    min-width: 250px;
+  }
+
+  .rowToColumn {
+    flex-direction: column;
+  }
+
+  .selected {
+    .poster {
+      width: 200px;
+      margin-right: 0px;
+      margin-top: 20px;
+    }
+
+    .data {
+      margin: 30px 0 0 0;
+
+      .genre,
+      .overview {
+        display: block;
+        span {
+          display: block;
+          margin-bottom: 0.5rem;
+        }
+      }
+    }
+  }
+
+  .form-add-review {
+    padding: 0 10px;
+
+    .form {
+      align-items: inherit;
+
+      .left {
+        padding: 1rem 0;
+      }
+
+      .right {
+        width: 100%;
+        padding: 0;
+      }
+    }
+  }
+
+  .money {
+    width: 47px;
+  }
+
+  .money-blank {
+    width: 47px;
+  }
+
+  .coin {
+    width: 20px;
+  }
+}

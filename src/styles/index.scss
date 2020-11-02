@@ -1,1 +1,12 @@
-@import 'reset';
+@import 'default/variables';
+@import 'default/mixins';
+@import 'default/reset';
+
+@import 'layout';
+@import 'pages/auth';
+@import 'pages/review';
+@import 'pages/newReview';
+@import 'pages/myReview';
+@import 'pages/dashboard';
+@import 'pages/index';
+@import 'background';

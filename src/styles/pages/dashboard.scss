@@ -1,0 +1,181 @@
+/* Dashboard page */
+
+.page-top-description {
+  font-size: 1.2rem;
+  p {
+    margin: 0.5rem;
+    span {
+      font-size: 1.5rem;
+      font-weight: 600;
+    }
+  }
+}
+
+.setting-label {
+  margin-top: 30px;
+  padding: 0 10px 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid $color-font2;
+  color: $color-font2;
+  font-size: 1.2rem;
+
+  svg {
+    margin-right: 10px;
+  }
+
+  &:hover {
+    cursor: pointer;
+    border-bottom: 1px solid $color-font;
+    color: $color-font;
+  }
+}
+
+.setting-checkbox {
+  &:checked + .setting-label {
+    color: $color-font;
+  }
+}
+
+.img-card {
+  width: 150px;
+  margin-bottom: 15px;
+}
+
+.overflow-wrap {
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.graph {
+  width: 500px;
+}
+
+.container-loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 50vh;
+  font-size: 1.5rem;
+}
+
+.container-subscription {
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.stream-item {
+  .item-name {
+    margin-bottom: 10px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-wrap: normal;
+    width: 200px;
+    overflow: hidden;
+
+    font: {
+      size: 2rem;
+      weight: 600;
+    }
+  }
+
+  .item-body {
+    font: {
+      size: 1.2rem;
+      weight: 600;
+    }
+  }
+}
+
+.item-del {
+  cursor: pointer;
+  color: $color-font2;
+  font-size: 2rem;
+  height: 2rem;
+  align-self: flex-end;
+}
+
+.form-underline {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  input {
+    background: none;
+    margin-top: 15px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #eeeeee;
+    font-size: 1.2rem;
+    color: $color-font;
+    background-color: none;
+    font-family: $font-body;
+  }
+
+  .input-add {
+    width: 200px;
+    height: 30px;
+    border-bottom: 1px solid #eeeeee;
+    font-size: 1rem;
+  }
+
+  .error {
+    text-align: center;
+    margin: 10px 0;
+    font-size: 0.9rem;
+    height: 16px;
+  }
+}
+
+.submit-small {
+  padding: 7px 30px 5px;
+  border-radius: 5px;
+  font-weight: 600;
+  border: 2px solid #000000;
+  font-size: 1rem;
+
+  &:hover {
+    cursor: pointer;
+    background-color: #000000;
+    color: #ffffff;
+  }
+}
+
+.chart {
+  padding: 20px 0;
+
+  .title {
+    font-size: 1.5rem;
+    font-family: $font-title;
+    font-weight: 400;
+  }
+
+  .description {
+    padding: 5px 20px 10px;
+  }
+}
+
+.canvas-container {
+  width: 100%;
+}
+
+.pies {
+  margin-top: 10px;
+}
+
+@include respond-to(mobile) {
+  .form-underline {
+    .input-add {
+      width: 170px;
+      height: 25px;
+    }
+  }
+
+  .card {
+    padding: 20px;
+  }
+
+  .graph {
+    width: 100%;
+  }
+}

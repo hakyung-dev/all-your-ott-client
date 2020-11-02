@@ -1,0 +1,82 @@
+$small: 320px;
+$large: 1200px;
+$mobile: 767px;
+
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=DM+Serif+Display&family=Righteous&family=Roboto&family=Black+Han+Sans&family=Roboto+Slab&display=swap');
+@font-face {
+  font-family: 'S-CoreDream-4Regular';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-4Regular.woff')
+    format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+$font-title: 'Abril Fatface', 'Black Han Sans', serif;
+$font-num: 'DM Serif Display', serif;
+$font-sub: 'Roboto Slab', sans-serif;
+$font-body: 'Roboto', 'S-CoreDream-4Regular', sans-serif;
+
+$color-font: #3c3d4d;
+$color-font2: #afafaf;
+$grey: #efefef;
+$yellow: #ffc819;
+$red: #ff4b33;
+$blue: #0b379b;
+$skyblue: #d3e2f2;
+
+$shadow: 10px 12px 15px rgba(0, 0, 0, 0.2);
+$shadow-left: -10px 12px 35px rgba(0, 0, 0, 0.2);
+
+@keyframes down {
+  from {
+    height: 0%;
+  }
+  to {
+    height: 10%;
+  }
+}
+
+@keyframes shake {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(1deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes shakeshake {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(5deg);
+  }
+  50% {
+    transform: rotate(0deg);
+  }
+  75% {
+    transform: rotate(-5deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes progress {
+  0% {
+    stroke-dasharray: 0 100;
+  }
+}
+
+.shake {
+  animation: shake 0.5s ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+.shake-slow {
+  animation: shakeshake 0.9s ease-in-out;
+  animation-iteration-count: infinite;
+}
