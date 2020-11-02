@@ -33,9 +33,7 @@ const ReviewForm = (props) => {
     if (selectedDate) {
       setHandledDate(selectedDate.selectedDate);
       setValues({
-        ...values,
         date: selectedDate.selectedDate,
-        score: handledScore,
       });
     }
   }, [selectedDate]);
@@ -64,28 +62,30 @@ const ReviewForm = (props) => {
         year: year,
       };
 
-      setValues({
-        ...values,
+      setValues((prevState) => ({
+        ...prevState,
         content: contentValues,
         type: type,
-      });
+        score: handledScore,
+      }));
     }
-  }, [selectedContent]);
+  }, [selectedContent, handledScore]);
 
   useEffect(() => {
-    setTimeout(() => setError(''), 2000);
+    const time = setTimeout(() => setError(''), 2000);
+    return () => clearTimeout(time);
   }, [error]);
 
-  const handleChange = async (e) => {
+  const handleChange = (e) => {
     setValues({ ...values, [e.target.name]: e.target.value });
   };
-  const handleDate = async (e) => {
+  const handleDate = (e) => {
     const formatDate = format(new Date(e.target.value), 'yyyy-MM-dd');
     setHandledDate(formatDate);
     setValues({ ...values, date: formatDate });
   };
 
-  const handleSlide = async (e) => {
+  const handleSlide = (e) => {
     setHandledScore({ ...handledScore, [e.target.name]: e.target.value });
     setValues({
       ...values,
@@ -131,9 +131,7 @@ const ReviewForm = (props) => {
       <div>리뷰 컨텐츠를 검색해주세요!</div>
     </>
   ) : (
-    <>
-      <Content content={selectedContent} />
-    </>
+    <Content content={selectedContent} />
   );
 
   return (
