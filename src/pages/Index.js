@@ -44,7 +44,7 @@ const Index = () => {
             </div>
           </div>
           <div className="info">
-            <div className="title">Your Streamings</div>
+            <div className="title">Your Subscription</div>
             <div className="description">
               서비스를 등록, 삭제하여 관리 할 수 있습니다.
             </div>

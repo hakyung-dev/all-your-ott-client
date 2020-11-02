@@ -90,7 +90,7 @@ const Dashboard = (props) => {
       <section className="bg-skyblue">
         <div className="container-wide container-subscription">
           <div className="sub-top">
-            <div className="title">Your Streaming</div>
+            <div className="title">Your Subscription</div>
             <div className="description">
               {user}님이 현재 구독하는 스트리밍 서비스입니다.
             </div>
