@@ -21,6 +21,7 @@ const Search = (props) => {
 
   const handleSearch = async (e) => {
     e.preventDefault();
+    setCurrentPage(1);
     if (keyword.query.length === 0) {
       return setError('검색어를 입력하세요.');
     }
