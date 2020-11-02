@@ -5,6 +5,10 @@ import Layout from './layouts/Layout';
 import Index from './pages/Index';
 import SignUp from './pages/Auth/SignUp';
 import SignIn from './pages/Auth/SignIn';
+import Dashboard from './pages/Dashboard/';
+import Review from './pages/Review';
+import NewReview from './pages/NewReview';
+import MyReview from './pages/MyReview';
 
 const App = (props) => {
   const { authorizeToken, isAuthenticated } = props;
@@ -40,6 +44,22 @@ const App = (props) => {
               }
             }}
           />
+          <Route
+            exact
+            path="/dashboard"
+            render={() => <Dashboard {...props} />}
+          />
+          <Route
+            exact
+            path="/review/new"
+            render={(routerProps) => <NewReview {...props} {...routerProps} />}
+          />
+          <Route
+            exact
+            path="/review/:id"
+            render={(routerProps) => <MyReview {...props} {...routerProps} />}
+          />
+          <Route exact path="/review" render={() => <Review {...props} />} />
           <Route exact path="/" render={() => <Index />} />
         </Switch>
       </Layout>
