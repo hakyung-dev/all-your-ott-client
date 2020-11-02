@@ -69,10 +69,38 @@ export const getGenreApi = async (genres) => {
   }
 };
 
+export const getDetailApi = async (content) => {
+  try {
+    const res = await axios.get(
+      `api/search/detail/${content.type}/${content.id}`
+    );
+    return res;
+  } catch (err) {
+    return err.response;
+  }
+};
+
 export const addReviewApi = async (userId, review) => {
-  console.log(review);
   try {
     const res = await axios.put(`api/review/${userId}/new`, review);
+    return res;
+  } catch (err) {
+    return err.response;
+  }
+};
+
+export const getReviewApi = async (reviewId) => {
+  try {
+    const res = await axios.get(`api/review/${reviewId}`);
+    return res;
+  } catch (err) {
+    return err.response;
+  }
+};
+
+export const removeReviewApi = async (reviewId, userId) => {
+  try {
+    const res = await axios.put(`api/review/${reviewId}/remove`, userId);
     return res;
   } catch (err) {
     return err.response;
