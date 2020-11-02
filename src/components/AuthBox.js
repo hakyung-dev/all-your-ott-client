@@ -21,7 +21,6 @@ const AuthBox = (props) => {
     </>
   ) : (
     <>
-      <div className="user">안녕하세요!</div>
       <Link to="/signin" className="button-auth link-signin">
         Sign In
       </Link>
