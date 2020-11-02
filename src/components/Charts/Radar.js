@@ -22,9 +22,6 @@ const ChartRadar = (props) => {
   };
 
   const options = {
-    style: {
-      width: 200,
-    },
     legend: {
       display: false,
     },
