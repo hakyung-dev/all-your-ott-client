@@ -5,6 +5,7 @@ import { useHistory } from 'react-router-dom';
 import ContentDetail from './ContentDetail';
 import Credit from './Credit';
 import Review from './Review';
+import Media from './Media';
 import Loading from '../../components/Loading';
 
 const MyReview = ({ match }) => {
@@ -18,7 +19,7 @@ const MyReview = ({ match }) => {
     const callApi = async () => {
       const reviewRes = await getReviewApi(match.params.id);
       setReview(reviewRes.data.review);
-      if (reviewRes.status !== 200) {
+      if (reviewRes.status !== 201) {
         return history.push('../notfound');
       }
 
@@ -48,6 +49,11 @@ const MyReview = ({ match }) => {
         <>
           <ContentDetail content={detail} />
           <Review review={review} />
+          {detail.video || detail.images ? (
+            <Media video={detail.video} images={detail.images} />
+          ) : (
+            <></>
+          )}
           <Credit
             cast={credit.cast}
             director={credit.director}

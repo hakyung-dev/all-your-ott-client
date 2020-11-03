@@ -165,6 +165,43 @@
   }
 }
 
+.img-result {
+  margin-top: 2rem;
+
+  .still {
+    width: 100%;
+  }
+
+  .img-pagination {
+    margin: 1rem 0;
+    text-align: center;
+    .page-button {
+      font-family: $font-body;
+      font-size: 1.2rem;
+      font-weight: 600;
+    }
+    .page-button-active {
+      font-family: $font-body;
+      font-size: 1.2rem;
+      font-weight: 600;
+    }
+  }
+}
+
+.youtube {
+  position: relative;
+  padding-bottom: 56.25%;
+  padding-top: 25px;
+  height: 0;
+
+  iframe {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+
 @include respond-to(mobile) {
   .container-content {
     flex-direction: column;
