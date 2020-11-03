@@ -9,6 +9,7 @@ import Dashboard from './pages/Dashboard/';
 import Review from './pages/Review';
 import NewReview from './pages/NewReview';
 import MyReview from './pages/MyReview';
+import NotFound from './pages/NotFound';
 
 const App = (props) => {
   const { authorizeToken, isAuthenticated } = props;
@@ -61,6 +62,7 @@ const App = (props) => {
           />
           <Route exact path="/review" render={() => <Review {...props} />} />
           <Route exact path="/" render={() => <Index />} />
+          <Route path="*" render={() => <NotFound />} />
         </Switch>
       </Layout>
     </div>

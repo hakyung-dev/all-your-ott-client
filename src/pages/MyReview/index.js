@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { getDetailApi, getReviewApi } from '../../api';
+import { useHistory } from 'react-router-dom';
 
 import ContentDetail from './ContentDetail';
 import Credit from './Credit';
@@ -11,11 +12,16 @@ const MyReview = ({ match }) => {
   const [review, setReview] = useState(null);
   const [detail, setDetail] = useState(null);
   const [credit, setCredit] = useState(null);
+  const history = useHistory();
 
   useEffect(() => {
     const callApi = async () => {
       const reviewRes = await getReviewApi(match.params.id);
       setReview(reviewRes.data.review);
+      if (reviewRes.status !== 200) {
+        return history.push('../notfound');
+      }
+
       const content = {
         id: reviewRes.data.review.content.id,
         type: reviewRes.data.review.type,
