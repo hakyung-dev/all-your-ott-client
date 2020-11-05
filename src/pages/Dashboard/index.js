@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { paySoon } from '../../utils';
 
+import SectionSub from '../../components/SectionSub';
 import Subscription from './Subscription';
 import NeedLogin from '../../components/NeedLogin';
 import Counter from '../../components/Counter';
@@ -54,13 +55,12 @@ const Dashboard = (props) => {
         그리고 총 <Counter target={review.length} type={`length`} />
         개의 리뷰를 작성하셨습니다.
       </p>
-      {soon.length > 0 ? (
+      {soon.length > 0 && (
         <p>
-          5일 내로 결제될 OTT서비스가 <span>{soon.length}개</span> 있습니다.<br></br>
+          5일 내로 결제될 OTT서비스가 <span>{soon.length}개</span> 있습니다.
+          <br></br>
           {`>>> ${soon.join(', ')}`}
         </p>
-      ) : (
-        <></>
       )}
     </div>
   ) : (
@@ -83,31 +83,23 @@ const Dashboard = (props) => {
   );
 
   return (
-    <div>
+    <article>
       <section>
         <div className={`container bg-streaming page-top`}>{pageTop}</div>
       </section>
-      <section className="bg-skyblue">
-        <div className="container-wide container-subscription">
-          <div className="sub-top">
-            <div className="title">Your Subscription</div>
-            <div className="description">
-              {user}님이 현재 구독하는 스트리밍 서비스입니다.
-            </div>
-          </div>
-          <div className="sub-body">{yourStreaming}</div>
-        </div>
-      </section>
-      <section className="">
-        <div className="container">
-          <div className="sub-top">
-            <div className="title">DashBoard</div>
-            <div className="description">{user}님의 OTT 서비스 통계입니다.</div>
-          </div>
-          <div className="sub-body">{graph}</div>
-        </div>
-      </section>
-    </div>
+      <SectionSub
+        color={`skyblue`}
+        title={`Your Subscription`}
+        description={`${user}님이 현재 구독하는 스트리밍 서비스입니다.`}
+        body={[yourStreaming]}
+      />
+      <SectionSub
+        title={`DashBoard`}
+        layout={`chart`}
+        description={`${user}님의 OTT 서비스 통계입니다.`}
+        body={[graph]}
+      />
+    </article>
   );
 };
 

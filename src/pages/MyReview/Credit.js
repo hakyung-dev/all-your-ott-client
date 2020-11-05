@@ -1,4 +1,6 @@
 import React from 'react';
+
+import SectionSub from '../../components/SectionSub';
 import defaultPoster from '../../styles/images/defaultPoster.png';
 
 const Credit = (props) => {
@@ -18,39 +20,32 @@ const Credit = (props) => {
     );
   });
 
-  const crewDirector = director ? (
-    <p className="crew">
-      <span>Director</span>
+  const crewDirector = director && (
+    <p className="detail-item">
+      <span className="label">Director</span>
       {director.name}
     </p>
-  ) : (
-    <></>
   );
 
-  const crewWriter = writer ? (
-    <p className="crew">
-      <span>Writer</span>
+  const crewWriter = writer && (
+    <p className="detail-item">
+      <span className="label">Writer</span>
       {writer.name}
     </p>
-  ) : (
-    <></>
   );
 
-  return (
-    <section className="bg-grey">
-      <div className="container-credit">
-        <div className="title">Credit</div>
-        {crewDirector}
-        {crewWriter}
-        <p>
-          <span>Actors</span>
-        </p>
-        <div className="actors">
-          <ul className="ul-actors">{actors}</ul>
-        </div>
+  const creditBody = (
+    <div className="detail">
+      {crewDirector}
+      {crewWriter}
+      <div className="detail-item">
+        <span className="label">Actors</span>
+        <ul className="ul-actors">{actors}</ul>
       </div>
-    </section>
+    </div>
   );
+
+  return <SectionSub color={`grey`} title={`Credit`} body={[creditBody]} />;
 };
 
 export default Credit;

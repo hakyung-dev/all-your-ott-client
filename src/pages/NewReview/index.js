@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 
+import SectionSub from '../../components/SectionSub';
 import Search from './Search';
 import ReviewForm from './ReviewForm';
 import NeedLogin from '../../components/NeedLogin';
@@ -12,6 +13,21 @@ const NewReview = (props) => {
     setSelectedContent({ ...content });
   };
 
+  const searchBody = <Search handleChoice={handleChoice} />;
+
+  const formBody = !signInUser ? (
+    <NeedLogin
+      description1={`리뷰를 작성하여 기록을 남길 수 있습니다.`}
+      description2={`리뷰를 관리해보세요!`}
+    />
+  ) : (
+    <ReviewForm
+      {...props}
+      selectedDate={props.location.state}
+      selectedContent={selectedContent}
+    />
+  );
+
   return (
     <>
       <section>
@@ -20,31 +36,19 @@ const NewReview = (props) => {
           새로운 리뷰를 작성해보세요!
         </div>
       </section>
-      <section className="bg-skyblue">
-        <Search handleChoice={handleChoice} />
-      </section>
-      <section className="bg-grey">
-        <div className="container">
-          <div className="sub-top">
-            <div className="title">Add Review</div>
-            <div className="description">리뷰를 완성하세요.</div>
-          </div>
-          <div className="sub-body">
-            {!signInUser ? (
-              <NeedLogin
-                description1={`리뷰를 작성하여 기록을 남길 수 있습니다.`}
-                description2={`리뷰를 관리해보세요!`}
-              />
-            ) : (
-              <ReviewForm
-                {...props}
-                selectedDate={props.location.state}
-                selectedContent={selectedContent}
-              />
-            )}
-          </div>
-        </div>
-      </section>
+      <SectionSub
+        color={`skyblue`}
+        title={`Search`}
+        description={`리뷰할 컨텐츠를 검색하세요.`}
+        body={[formBody]}
+        body={[searchBody]}
+      />
+      <SectionSub
+        color={`grey`}
+        title={`Add Review`}
+        description={`리뷰를 완성하세요.`}
+        body={[formBody]}
+      />
     </>
   );
 };
