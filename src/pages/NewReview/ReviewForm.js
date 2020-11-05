@@ -138,35 +138,39 @@ const ReviewForm = (props) => {
     <>
       <div className="selected card-big bg-white rowToColumn">{content}</div>
       <form className="form-add-review" onSubmit={handleSubmit}>
-        <div className="form rowToColumn">
-          <div className="left">
-            <p className="when">
-              <span>언제 감상하셨나요?</span>
+        <div className="form layout-row rowToColumn">
+          <div className="left detail">
+            <div className="detail-item detail-right">
+              <span className="label-long">언제 감상하셨나요?</span>
               <input
                 type="date"
                 name="date"
                 onChange={handleDate}
                 value={handledDate}
               />
-            </p>
-            <p className="by">
-              <span>어떤 서비스를 통해 감상하셨나요?</span>
+            </div>
+            <p className="detail-item detail-right">
+              <span className="label-long">
+                어떤 서비스를 통해 감상하셨나요?
+              </span>
               <Option
                 options={streaming}
                 type={`service`}
                 handleOption={handleChange}
               />
             </p>
-            <p className="rating">
-              <span>얼마의 가치가 있는 컨텐츠 였나요? {hover}</span>
+            <p className="detail-item">
+              <span className="label-long">
+                얼마의 가치가 있는 컨텐츠 였나요? {hover}
+              </span>
             </p>
             <Rating
               handleChange={handleChange}
               setHover={setHover}
               hover={hover}
             />
-            <p className="text">
-              <span>감상평</span>
+            <p className="detail-item">
+              <span className="label">감상평</span>
               <textarea
                 className="input-create"
                 name="review"
@@ -177,9 +181,9 @@ const ReviewForm = (props) => {
               />
             </p>
           </div>
-          <div className="right">
-            <p className="directing">
-              <span>감독 연출</span>
+          <div className="right detail">
+            <p className="detail-item detail-right">
+              <span className="label-slider">감독 연출</span>
               <input
                 type="range"
                 name="directing"
@@ -191,8 +195,8 @@ const ReviewForm = (props) => {
               />
               {handledScore.directing}
             </p>
-            <p className="acting">
-              <span>배우 연기</span>
+            <p className="detail-item detail-right">
+              <span className="label-slider">배우 연기</span>
               <input
                 type="range"
                 name="acting"
@@ -204,8 +208,8 @@ const ReviewForm = (props) => {
               />
               {handledScore.acting}
             </p>
-            <p className="visual">
-              <span>영상미</span>
+            <p className="detail-item detail-right">
+              <span className="label-slider">영상미</span>
               <input
                 type="range"
                 name="visual"
@@ -217,8 +221,8 @@ const ReviewForm = (props) => {
               />
               {handledScore.visual}
             </p>
-            <p className="story">
-              <span>스토리</span>
+            <p className="detail-item detail-right">
+              <span className="label-slider">스토리</span>
               <input
                 type="range"
                 name="story"
@@ -230,8 +234,8 @@ const ReviewForm = (props) => {
               />
               {handledScore.story}
             </p>
-            <p className="ost">
-              <span>OST</span>
+            <p className="detail-item detail-right">
+              <span className="label-slider">OST</span>
               <input
                 type="range"
                 name="ost"

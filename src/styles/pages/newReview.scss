@@ -191,19 +191,6 @@
       font-weight: 600;
       margin-bottom: 20px;
     }
-
-    .genre,
-    .overview {
-      display: flex;
-      color: #2c2c2c;
-      font-size: 0.9rem;
-    }
-
-    span {
-      justify-content: flex-start;
-      flex: 0 0 100px;
-      font-weight: 600;
-    }
   }
 }
 
@@ -227,7 +214,7 @@
       display: flex;
       flex-direction: column;
       margin: 0 auto;
-      padding: 3rem;
+      padding-left: 5rem;
     }
   }
 
@@ -235,46 +222,6 @@
     text-align: center;
     label {
       margin: 0 5px;
-    }
-  }
-
-  .when,
-  .by,
-  .rating,
-  .text {
-    display: block;
-    text-align: right;
-    color: #2c2c2c;
-    font-size: 1rem;
-
-    span {
-      display: block;
-      flex: 0 0 280px;
-      font-weight: 600;
-      text-align: left;
-      margin-bottom: 0.5rem;
-    }
-  }
-
-  .directing,
-  .acting,
-  .visual,
-  .story,
-  .ost {
-    display: flex;
-    color: #2c2c2c;
-    font-size: 1rem;
-    margin: 1rem 0;
-    padding: 0 10px;
-
-    span {
-      flex: 45%;
-      font-weight: 600;
-    }
-
-    input {
-      margin-right: 20px;
-      cursor: pointer;
     }
   }
 
@@ -379,24 +326,11 @@
 
     .data {
       margin: 30px 0 0 0;
-
-      .genre,
-      .overview {
-        display: block;
-        span {
-          display: block;
-          margin-bottom: 0.5rem;
-        }
-      }
     }
   }
 
   .form-add-review {
-    padding: 0 10px;
-
     .form {
-      align-items: inherit;
-
       .left {
         padding: 1rem 0;
       }

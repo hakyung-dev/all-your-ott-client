@@ -4,8 +4,9 @@
 
   .poster {
     padding: 0px;
-    width: 250px;
-    margin: 0 30px 0 0;
+    width: 300px;
+    margin-right: 40px;
+    box-shadow: $shadow;
   }
 
   .info {
@@ -24,30 +25,14 @@
       color: $color-font;
       font-family: $font-title;
       font-size: 2.2rem;
-      font-weight: 600;
+      font-weight: 400;
     }
-  }
-
-  .genre,
-  .overview,
-  .rate {
-    display: flex;
-    align-items: center;
-    text-align: left;
-
-    color: #2c2c2c;
-    font-size: 0.9rem;
-  }
-
-  span {
-    flex: 0 0 100px;
-    font-weight: 600;
   }
 
   .ul-genre {
     display: flex;
     li {
-      margin-right: 10px;
+      margin-right: 1rem;
     }
   }
 
@@ -74,94 +59,10 @@
   }
 
   .circle-bg {
-    stroke: #dddddd;
+    stroke: $color-font2;
     fill: none;
     stroke-width: 4;
     stroke-linecap: round;
-  }
-}
-
-.container-credit {
-  display: flex;
-  flex-direction: column;
-  margin: 0 auto;
-  max-width: 1024px;
-  padding: 50px 20px;
-
-  .crew {
-    display: flex;
-  }
-
-  .title {
-    text-align: center;
-    margin: 20px 0;
-    font-size: 2rem;
-    font-family: $font-title;
-  }
-
-  .ul-actors {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-
-    .actor {
-      margin: 10px;
-    }
-  }
-
-  .profile {
-    border: 1px solid #dddddd;
-    width: 100%;
-  }
-
-  .actor-name {
-    font-weight: 600;
-  }
-
-  .actor-character {
-    font-weight: 600;
-    color: #7c7c7c;
-    font-size: 0.9rem;
-  }
-
-  span {
-    flex: 0 0 130px;
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: #2c2c2c;
-  }
-}
-
-.container-my-review {
-  .title {
-    text-align: center;
-    margin: 20px 0;
-    font-size: 2rem;
-    font-family: $font-title;
-  }
-}
-
-.review-body {
-  justify-content: space-between;
-  .score-chart {
-    padding: 30px;
-  }
-
-  .money-rate {
-    width: 100%;
-  }
-
-  .my-rate,
-  .my-date,
-  .my-service,
-  .my-text {
-    display: flex;
-  }
-
-  span {
-    flex: 0 0 40%;
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: #2c2c2c;
   }
 }
 
@@ -173,32 +74,31 @@
   }
 
   .img-pagination {
-    margin: 1rem 0;
-    text-align: center;
-    .page-button {
-      font-family: $font-body;
-      font-size: 1.2rem;
-      font-weight: 600;
-    }
-    .page-button-active {
-      font-family: $font-body;
-      font-size: 1.2rem;
-      font-weight: 600;
-    }
-  }
-}
+    margin-top: 1.5rem;
+    display: flex;
+    justify-content: center;
 
-.youtube {
-  position: relative;
-  padding-bottom: 56.25%;
-  padding-top: 25px;
-  height: 0;
+    .pagination {
+      display: flex;
+    }
 
-  iframe {
-    position: absolute;
-    top: 0;
-    width: 100%;
-    height: 100%;
+    .slide-button {
+      display: flex;
+      align-items: center;
+      font-size: 2rem;
+      color: $color-font2;
+
+      &:hover {
+        cursor: pointer;
+        color: $color-font;
+      }
+    }
+
+    .slide-page {
+      display: flex;
+      align-items: center;
+      font-size: 1.5rem;
+    }
   }
 }
 
@@ -212,46 +112,6 @@
     .poster {
       padding: 0px;
       margin: 0;
-    }
-
-    .genre,
-    .overview,
-    .rate {
-      display: flex;
-
-      span {
-        flex: 0 0 30%;
-        margin-bottom: 0.5rem;
-      }
-    }
-  }
-
-  .container-credit {
-    padding: 30px 20px;
-
-    .ul-actors {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-    }
-  }
-
-  .review-body {
-    .my-review {
-      padding-left: 10px;
-      padding-right: 10px;
-      width: 100%;
-    }
-    .score-chart {
-      padding: 10px 10px 50px;
-    }
-    .rate {
-      .text {
-        display: block;
-      }
-    }
-
-    span {
-      flex: 0 0 40%;
     }
   }
 }

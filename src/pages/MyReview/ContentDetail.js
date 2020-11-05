@@ -19,15 +19,6 @@ const ContentDetail = (props) => {
     backgroundImage: `url(${back_img})`,
   };
 
-  const isHomepage = homepage ? (
-    <p className="genre">
-      <span>Page</span>
-      <a href={homepage}>{homepage}</a>
-    </p>
-  ) : (
-    <></>
-  );
-
   const allGenre = [];
   genres.forEach((genre, i) => {
     allGenre.push(genre.name);
@@ -43,21 +34,28 @@ const ContentDetail = (props) => {
               <h2 className="original">{original_title}</h2>
               <h1 className="title">
                 {title}
-                <span>{year}</span>
+                <span>{`, ${year}`}</span>
               </h1>
             </div>
-            <p className="genre">
-              <span>Genre</span>
-              {allGenre.join(', ')}
-            </p>
-            <p className="overview">
-              <span>Overview</span>
-              {overview}
-            </p>
-            {isHomepage}
-            <div className="rate">
-              <span>Rate</span>
-              <Rate rate={rating} type={`circle`} />
+            <div className="detail wrap-detail">
+              <p className="detail-item">
+                <span className="label">Genre</span>
+                {allGenre.join(', ')}
+              </p>
+              <p className="detail-item">
+                <span className="label">Overview</span>
+                {overview}
+              </p>
+              {homepage && (
+                <p className="detail-item">
+                  <span className="label">Page</span>
+                  <a href={homepage}>{homepage}</a>
+                </p>
+              )}
+              <div className="detail-item">
+                <span className="label">Rate</span>
+                <Rate rate={rating} type={`circle`} />
+              </div>
             </div>
           </div>
         </div>

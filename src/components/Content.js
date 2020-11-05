@@ -27,14 +27,15 @@ const Content = (props) => {
   return (
     <>
       <img className="poster" src={poster} alt="poster" />
-      <div className="data">
+      <div className="data detail">
         <div>{year}</div>
         <div className="title">{contentTitle}</div>
-        <p className="genre">
-          <span>Genre</span> <Genre ids={genre_ids} type={type} />
+        <p className="detail-item">
+          <span className="label">Genre</span>
+          <Genre ids={genre_ids} type={type} />
         </p>
-        <p className="overview">
-          <span>Overview</span> {overview}
+        <p className="detail-item">
+          <span className="label">Overview</span> {overview}
         </p>
       </div>
     </>
