@@ -46,20 +46,18 @@ const MyReview = ({ match }) => {
           <Loading />
         </div>
       ) : (
-        <>
+        <article>
           <ContentDetail content={detail} />
           <Review review={review} />
-          {detail.video || detail.images ? (
+          {(detail.video || detail.images) && (
             <Media video={detail.video} images={detail.images} />
-          ) : (
-            <></>
           )}
           <Credit
             cast={credit.cast}
             director={credit.director}
             writer={credit.writer}
           />
-        </>
+        </article>
       )}
     </>
   );

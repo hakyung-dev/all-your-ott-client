@@ -87,10 +87,8 @@ const Calendar = (props) => {
               src={reviewOfDay[1].content.poster}
               alt="poster"
             />
-            {reviewOfDay.length > 2 ? (
+            {reviewOfDay.length > 2 && (
               <div className="more">+{reviewOfDay.length - 2}</div>
-            ) : (
-              <></>
             )}
           </div>
         );
