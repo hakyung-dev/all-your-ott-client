@@ -4,10 +4,10 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import App from './containers/App';
-import aysApp from './reducers';
+import ayoApp from './reducers';
 import * as serviceWorker from './serviceWorker';
 
-const store = createStore(aysApp);
+const store = createStore(ayoApp);
 
 render(
   <React.StrictMode>
