@@ -1,4 +1,5 @@
 import React from 'react';
+import { IoIosArrowDropright, IoIosArrowDropleft } from 'react-icons/io';
 
 const Pagination = (props) => {
   const { itemPerPage, totalItems, paginate, type, currentPage } = props;
@@ -12,18 +13,39 @@ const Pagination = (props) => {
     }
   }
 
-  const buttonList = pageButton.map((number, i) => {
-    const pageNumber = i + 1;
-    const effect =
-      currentPage === pageNumber ? 'page-button-active' : 'page-button';
-    return (
-      <li key={i}>
-        <a onClick={() => paginate(pageNumber)} className={effect} href="#/">
-          {number}
-        </a>
-      </li>
+  const buttonList =
+    type === `slide` ? (
+      <>
+        <li>
+          <button onClick={paginate.down} className="slide-button">
+            <IoIosArrowDropleft />
+          </button>
+        </li>
+        <div className="slide-page">{`${currentPage + 1}/${totalItems}`}</div>
+        <li>
+          <button onClick={paginate.up} className="slide-button">
+            <IoIosArrowDropright />
+          </button>
+        </li>
+      </>
+    ) : (
+      pageButton.map((number, i) => {
+        const pageNumber = i + 1;
+        const effect =
+          currentPage === pageNumber ? 'page-button-active' : 'page-button';
+        return (
+          <li key={i}>
+            <a
+              onClick={() => paginate(pageNumber)}
+              className={effect}
+              href="#/"
+            >
+              {number}
+            </a>
+          </li>
+        );
+      })
     );
-  });
 
   return (
     <nav>
