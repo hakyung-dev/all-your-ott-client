@@ -95,7 +95,7 @@ const Dashboard = (props) => {
       />
       <SectionSub
         title={`DashBoard`}
-        layout={`chart`}
+        layout={`chart layout-column`}
         description={`${user}님의 OTT 서비스 통계입니다.`}
         body={[graph]}
       />
