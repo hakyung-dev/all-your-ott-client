@@ -111,6 +111,9 @@ const SignUp = () => {
               </Link>
             </span>
           </div>
+          <div className="sample-description">
+            SAMPLE USER로 미리 체험해 볼 수 있습니다.
+          </div>
         </div>
       </div>
     </section>

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { signInApi } from '../../api';
+require('dotenv').config();
 
 const SignIn = (props) => {
   const { authorize } = props;
@@ -46,6 +47,13 @@ const SignIn = (props) => {
     setValues({ ...values, [e.target.name]: e.target.value });
   };
 
+  const handleClick = (e) => {
+    setValues({
+      email: process.env.REACT_APP_SAMPLE_EMAIL,
+      password: process.env.REACT_APP_SAMPLE_PASSWORD,
+    });
+  };
+
   return (
     <section className="bg-signin">
       <div className="container-auth side-left">
@@ -69,6 +77,19 @@ const SignIn = (props) => {
             <button className="button-auth submit-auth" type="submit">
               Sign In
             </button>
+            <div className="sample">
+              <div className="sample-description">
+                만약 가입 과정이 번거로우시다면, 아래 버튼을 클릭하여 SAMPLE
+                USER로 서비스를 체험해보세요.
+              </div>
+              <button
+                className="button submit-auth-sample"
+                onClick={handleClick}
+                type="submit"
+              >
+                SAMPLE USER로 체험하기
+              </button>
+            </div>
           </form>
           <div className="error">
             {`Don't have any account? `}

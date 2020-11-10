@@ -52,6 +52,17 @@
   margin-bottom: 20px;
 }
 
+.sample {
+  padding: 20px;
+  text-align: center;
+}
+
+.sample-description {
+  font-size: 0.8rem;
+  width: 300px;
+  text-align: center;
+}
+
 // Button
 .link-strong {
   color: $red;
@@ -67,6 +78,16 @@
 
   &:hover {
     cursor: pointer;
+  }
+}
+
+.submit-auth-sample {
+  color: #000000;
+  border: 2px solid #000000;
+  padding: 15px 20px 11px;
+  font-family: $font-body;
+  &:hover {
+    background-color: $skyblue;
   }
 }
 
