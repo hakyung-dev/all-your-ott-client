@@ -1,17 +1,19 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { signInApi } from '../../api';
 require('dotenv').config();
 
 const SignIn = (props) => {
   const { authorize } = props;
-  const [values, setValues] = useState({});
+  const [values, setValues] = useState({ email: '', password: '' });
   const [error, setError] = useState('');
 
   useEffect(() => {
     setTimeout(() => setError(''), 2000);
   }, [error]);
 
+  const emailInput = useRef();
+  const passwordInput = useRef();
   const emailRegex = /^(([^<>()[\]\\.,;:\s@']+(\.[^<>()[\]\\.,;:\s@']+)*)|('.+'))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
   const handleSubmit = async (e) => {
@@ -65,13 +67,17 @@ const SignIn = (props) => {
               type="text"
               name="email"
               placeholder="email"
+              value={values.email}
               onChange={handleChange}
+              ref={emailInput}
             />
             <input
               type="password"
               name="password"
               placeholder="password"
+              value={values.password}
               onChange={handleChange}
+              ref={passwordInput}
             />
             <div className="error">{error}</div>
             <button className="button-auth submit-auth" type="submit">
