@@ -134,27 +134,8 @@
       width: 50%;
       padding-right: 40px;
 
-      .score-chart {
-        padding: 30px;
-      }
-
       .money-rate {
         width: 80%;
-      }
-    }
-
-    .youtube {
-      position: relative;
-      padding-bottom: 56.25%;
-      padding-top: 25px;
-      height: 0;
-      width: 100%;
-
-      iframe {
-        position: absolute;
-        top: 0;
-        width: 100%;
-        height: 100%;
       }
     }
 
@@ -195,6 +176,21 @@
 
 .layout-chart {
   flex-direction: column;
+}
+
+.youtube {
+  position: relative;
+  padding-bottom: 56.25%;
+  padding-top: 25px;
+  height: 0;
+  width: 100%;
+
+  iframe {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+  }
 }
 
 .detail {
@@ -320,10 +316,6 @@ footer {
         padding-left: 10px;
         padding-right: 10px;
         width: 100%;
-
-        .score-chart {
-          padding: 10px 10px 50px;
-        }
       }
 
       .ul-actors {

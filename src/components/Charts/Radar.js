@@ -41,7 +41,7 @@ const ChartRadar = (props) => {
 
   return (
     <div className="score-chart">
-      <Radar data={data} options={options} width={300} height={300} />
+      <Radar data={data} options={options} width={280} height={280} />
     </div>
   );
 };
