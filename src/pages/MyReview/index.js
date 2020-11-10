@@ -18,10 +18,10 @@ const MyReview = ({ match }) => {
   useEffect(() => {
     const callApi = async () => {
       const reviewRes = await getReviewApi(match.params.id);
-      setReview(reviewRes.data.review);
       if (reviewRes.status !== 201) {
         return history.push('../notfound');
       }
+      setReview(reviewRes.data.review);
 
       const content = {
         id: reviewRes.data.review.content.id,
@@ -37,7 +37,7 @@ const MyReview = ({ match }) => {
       }
     };
     callApi();
-  }, [match.params.id]);
+  }, [match.params.id, history]);
 
   return (
     <>
