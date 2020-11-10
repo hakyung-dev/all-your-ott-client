@@ -40,14 +40,13 @@ const NewReview = (props) => {
         color={`skyblue`}
         title={`Search`}
         description={`리뷰할 컨텐츠를 검색하세요.`}
-        body={[formBody]}
-        body={[searchBody]}
+        body={searchBody}
       />
       <SectionSub
         color={`grey`}
         title={`Add Review`}
         description={`리뷰를 완성하세요.`}
-        body={[formBody]}
+        body={formBody}
       />
     </>
   );

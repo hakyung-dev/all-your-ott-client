@@ -45,7 +45,7 @@ const Credit = (props) => {
     </div>
   );
 
-  return <SectionSub color={`grey`} title={`Credit`} body={[creditBody]} />;
+  return <SectionSub color={`grey`} title={`Credit`} body={creditBody} />;
 };
 
 export default Credit;

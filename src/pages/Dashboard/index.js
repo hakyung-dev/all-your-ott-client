@@ -91,13 +91,13 @@ const Dashboard = (props) => {
         color={`skyblue`}
         title={`Your Subscription`}
         description={`${user}님이 현재 구독하는 스트리밍 서비스입니다.`}
-        body={[yourStreaming]}
+        body={yourStreaming}
       />
       <SectionSub
         title={`DashBoard`}
         layout={`chart layout-column`}
         description={`${user}님의 OTT 서비스 통계입니다.`}
-        body={[graph]}
+        body={graph}
       />
     </article>
   );

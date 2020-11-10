@@ -22,6 +22,7 @@ const Media = (props) => {
         frameBorder="0"
         allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
         allowFullScreen=""
+        title={video.name}
       />
     </div>
   );
@@ -41,9 +42,14 @@ const Media = (props) => {
     </div>
   );
 
-  return (
-    <SectionSub color={`skyblue`} title={`Media`} body={[trailer, stills]} />
+  const body = (
+    <>
+      {trailer}
+      {stills}
+    </>
   );
+
+  return <SectionSub color={`skyblue`} title={`Media`} body={body} />;
 };
 
 export default Media;

@@ -10,10 +10,6 @@ const SectionSub = (props) => {
     body,
   } = props;
 
-  const subBody = body.map((b) => {
-    return b;
-  });
-
   return (
     <section className={`bg-${color}`}>
       <div className={`container-sub bg-${bg}`}>
@@ -21,7 +17,7 @@ const SectionSub = (props) => {
           <h2 className="title">{title}</h2>
           <div className="description">{description}</div>
         </div>
-        <div className={`sub-body layout-${layout}`}>{subBody}</div>
+        <div className={`sub-body layout-${layout}`}>{body}</div>
       </div>
     </section>
   );

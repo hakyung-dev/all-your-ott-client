@@ -11,33 +11,34 @@ const MyReview = (props) => {
   const reviewDate = format(new Date(date), 'yyyy년 MM월 dd일');
 
   const reviewBody = (
-    <div className="detail my-review">
-      <p className="detail-item">
-        <span className="label">감상 날짜</span>
-        {reviewDate}
-      </p>
-      <p className="detail-item">
-        <span className="label">이용 서비스</span>by {service}
-      </p>
-      <p className="detail-item">
-        <span className="label">감상평</span>
-        {review}
-      </p>
-      <div className="detail-item">
-        <span className="label">평가 금액?!</span>
-        <Rate type={`money`} rate={rating} />
+    <>
+      <div className="detail my-review">
+        <p className="detail-item">
+          <span className="label">감상 날짜</span>
+          {reviewDate}
+        </p>
+        <p className="detail-item">
+          <span className="label">이용 서비스</span>by {service}
+        </p>
+        <p className="detail-item">
+          <span className="label">감상평</span>
+          {review}
+        </p>
+        <div className="detail-item">
+          <span className="label">평가 금액?!</span>
+          <Rate type={`money`} rate={rating} />
+        </div>
       </div>
-    </div>
+      <ChartRadar score={score} />
+    </>
   );
-
-  const chartBody = <ChartRadar score={score} />;
 
   return (
     <SectionSub
       layout={`row rowToColumn`}
       bg={`myreview`}
       title={`My Review`}
-      body={[reviewBody, chartBody]}
+      body={reviewBody}
     />
   );
 };
